@@ -18,18 +18,25 @@ public class Game {
 	
 	public static void main(String[] args) {
 		int pos=0;
-		int diceValue=roll();
-		int optionResult=options();
-		switch(optionResult) {
-		case IS_SNAKE:
-			pos-=diceValue;
-			break;
-		case IS_LADDER:
-			pos+=diceValue;
-			break;
-		case IS_NOPLAY:
-			pos+=0;
-			break;
+		while (pos<=100) {
+			
+			int diceValue=roll();
+			int optionResult=options();
+			switch(optionResult) {
+			case IS_SNAKE:
+				pos-=diceValue;
+				break;
+			case IS_LADDER:
+				pos+=diceValue;
+				break;
+			case IS_NOPLAY:
+				pos+=0;
+				break;
+			}
+			if(pos<0)
+			{
+				pos=0;
+			} 
 		}
 		System.out.println(pos);
 		
