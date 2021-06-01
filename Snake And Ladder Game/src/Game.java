@@ -18,11 +18,14 @@ public class Game {
  
 	
 	public static void main(String[] args) {
+		int countdice=0;
 		int pos=0;
 		int diceValue=0;
 		while (pos<=100) {
 			
 			 diceValue=roll();
+			 System.out.println("Dice value is:"+diceValue);
+			 countdice++;
 			int optionResult=options();
 			switch(optionResult) {
 			case IS_SNAKE:
@@ -52,16 +55,18 @@ public class Game {
 		if (pos > 100)
 		{
 			pos-=diceValue;
-		    System.out.println("outside "+pos);
+		    
 		    while (pos+diceValue!=100)
 		    {
 		    	diceValue=roll();
+		    	System.out.println("Dice value is:"+diceValue);
+		    	countdice++;
 		    }
 		    pos+=diceValue;
 		    System.out.println(pos+" Win !!");
 				
 		}
-		
+		System.out.println("Total rounds played :"+countdice);
 		System.out.println("End of loop Game");
 		
 		
